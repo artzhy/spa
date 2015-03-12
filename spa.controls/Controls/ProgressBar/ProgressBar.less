@@ -1,0 +1,33 @@
+@import "../../Styles/theme.less";
+
+progress-bar, progress-bar * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+progress-bar {
+    background-color: #fff;
+    border: @editor-border;
+    display: inline-block;
+    height: @editor-height;
+    position: relative;
+    vertical-align: bottom;
+    width: 150px;
+
+    .progress {
+        background-color: @progress-bar-background-color;
+        color: #fff;
+        height: 100%;
+    }
+
+    span {
+        font-size: 12px;
+        position: absolute;
+        margin-top: -8px;
+        left: 0;
+        right: 0;
+        top: 50%;
+        text-align: center;
+    }
+}

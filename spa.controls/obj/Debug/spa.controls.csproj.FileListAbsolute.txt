@@ -1,0 +1,4 @@
+D:\Projects\SPA\spa.controls\bin\spa.controls.dll
+D:\Projects\SPA\spa.controls\bin\spa.controls.pdb
+D:\Projects\SPA\spa.controls\obj\Debug\spa.controls.dll
+D:\Projects\SPA\spa.controls\obj\Debug\spa.controls.pdb

@@ -1,0 +1,54 @@
+<div class="input" tabindex="0" data-bind="
+    autofocus: autofocus,
+    click: onInputClick,
+    css: state,
+    event: { keydown: onKeyDown, mouseover: onMouseEnter, mouseout: onMouseLeave },
+    hasFocus: inputHasFocus">
+    <div class="input-text" data-bind="
+            css: { 'empty' : selectedItem() == emptyItem },
+            event: { mousedown: function() { 
+                return false;
+            }},
+            text: inputText">
+    </div>
+    <button class="input-button" tabindex="-1" data-bind="
+            event: { mousedown: function() {
+                return false;
+            }},
+            enable: enabled"></button>
+</div>
+<div class="popup" tabindex="-1" data-bind="
+    hasFocus: popupHasFocus,
+    visible: popupVisible">
+    <ul>
+        <li class="popup-item" data-bind="
+            click: onEmptyItemClick,
+            css: { 'active': activeItem() == emptyItem },
+            event: { mouseover: onEmptyItemHovered },
+            visible: emptyText() !== undefined">
+            <p class="item-text empty" data-bind="html: emptyItemText"></p>
+        </li>
+
+        <!-- ko if: $componentTemplateNodes != null && $componentTemplateNodes.length > 0 -->
+        <!-- ko foreach: items -->
+        <li class="popup-item" data-bind="
+                click: $parent.onItemClick,
+                css: { 'active': $parent.activeItem() == $data },
+                event: { mouseover: $parent.onItemHovered },
+                template: { nodes: $componentTemplateNodes }">
+        </li>
+        <!-- /ko -->
+        <!-- /ko -->
+
+        <!-- ko foreach: items -->
+        <!-- ko if: $componentTemplateNodes == null || $componentTemplateNodes.length > 0 -->
+        <li class="popup-item" data-bind="
+                click: $parent.onItemClick,
+                css: { 'active': $parent.activeItem() == $data },
+                event: { mouseover: $parent.onItemHovered },
+                html: $parent.getItemText($data)">
+        </li>
+        <!-- /ko -->
+        <!-- /ko -->
+    </ul>
+</div>

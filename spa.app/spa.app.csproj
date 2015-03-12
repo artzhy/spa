@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{D96A0A90-9E21-469C-BAB6-382BB361ED48}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>spa.app</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3203</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3203/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Layouts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="..\spa.common\Build\Latest\spa.common-latest.d.ts">
+      <Link>Scripts\typings\spa.common\spa.common-latest.d.ts</Link>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Bindings\Validation.ts" />
+    <TypeScriptCompile Include="Config\IDialog.ts" />
+    <TypeScriptCompile Include="Config\IDialogConfig.ts" />
+    <TypeScriptCompile Include="Config\ILayout.ts" />
+    <TypeScriptCompile Include="Config\ILayoutConfig.ts" />
+    <TypeScriptCompile Include="Config\IPage.ts" />
+    <TypeScriptCompile Include="Config\IPageConfig.ts" />
+    <TypeScriptCompile Include="Core\Application.ts" />
+    <TypeScriptCompile Include="Core\Dialog.ts" />
+    <TypeScriptCompile Include="Core\Globals.ts" />
+    <TypeScriptCompile Include="Core\Layout.ts" />
+    <TypeScriptCompile Include="Core\DialogConfigurations.ts" />
+    <TypeScriptCompile Include="Core\LayoutConfigurations.ts" />
+    <TypeScriptCompile Include="Core\Page.ts" />
+    <TypeScriptCompile Include="Core\PageConfigurations.ts" />
+    <TypeScriptCompile Include="Core\RouteAttribute.ts" />
+    <TypeScriptCompile Include="Core\View.ts" />
+    <TypeScriptCompile Include="Dialogs\InputString\InputStringDialog.ts" />
+    <TypeScriptCompile Include="Dialogs\OpenFileDialog.ts" />
+    <TypeScriptCompile Include="Pages\Forbidden\Forbidden.ts" />
+    <TypeScriptCompile Include="Pages\InternalServerError\InternalServerErrorPage.ts" />
+    <TypeScriptCompile Include="Pages\NotFound\NotFoundPage.ts" />
+    <TypeScriptCompile Include="Pages\UnknownError\UnknownError.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Build\EmbedLayoutTemplates.ps1" />
+    <Content Include="Build\EmbedDialogTemplates.ps1" />
+    <Content Include="Build\Latest\spa.app-latest.css">
+      <DependentUpon>spa.app-latest.less</DependentUpon>
+    </Content>
+    <Content Include="Build\Latest\spa.app-latest.min.css">
+      <DependentUpon>spa.app-latest.css</DependentUpon>
+    </Content>
+    <Content Include="Styles\Dialog.min.css">
+      <DependentUpon>Dialog.css</DependentUpon>
+    </Content>
+    <None Include="Build\EmbedPageTemplates.ps1" />
+    <Content Include="packages.config" />
+    <Content Include="Styles\Dialog.css">
+      <DependentUpon>Dialog.less</DependentUpon>
+    </Content>
+    <Content Include="Styles\Dialog.less" />
+    <Content Include="Styles\Dialog.css.map">
+      <DependentUpon>Dialog.css</DependentUpon>
+    </Content>
+    <Content Include="Build\Latest\spa.app-latest.less" />
+    <Content Include="Build\Latest\spa.app-latest.css.map">
+      <DependentUpon>spa.app-latest.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptOutFile>Build\Latest\spa.app-latest.js</TypeScriptOutFile>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

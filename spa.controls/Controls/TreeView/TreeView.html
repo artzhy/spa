@@ -1,0 +1,24 @@
+﻿<ul class="tree-view" data-bind="template: { nodes: treeTemplate, foreach: $data, as: 'tree' }"></ul>
+
+<template class="tree-view-template">
+    <!-- ko template: { nodes: tree.treeNodeTemplate, if: tree.nodes, foreach: tree.nodes } -->
+    <!-- /ko -->
+</template>
+
+<template class="tree-view-node-template">
+    <li>
+        <a class="node" data-bind="click: tree.nodeClick, css: { expandable: tree.nodeExpandable($data), expanded: tree.nodeExpanded($data), selected: tree.nodeSelected($data) }, template: { nodes: tree.treeNodeContentTemplate }"></a>
+        <!-- ko if: $data.nodes -->
+        <ul data-bind="template: { nodes: tree.treeNodeTemplate, foreach: $data.nodes }"></ul>
+        <!-- /ko -->
+    </li>
+</template>
+
+<template class="tree-view-content-template">
+    <!-- ko if: $componentTemplateNodes != null && $componentTemplateNodes.length > 0 -->
+    <span class="node-content" data-bind="template: { nodes: $componentTemplateNodes }"></span>
+    <!-- /ko -->
+    <!-- ko if: $componentTemplateNodes == null || $componentTemplateNodes.length == 0 -->
+    <span class="node-content" data-bind="html: text"></span>
+    <!-- /ko -->
+</template>

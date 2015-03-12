@@ -1,0 +1,17 @@
+﻿<input class="input" type="text" data-bind="
+    autofocus: autofocus,
+    enable: enabled,
+    event: { keydown: onKeyDown },
+    hasFocus: focused,
+    value: text,
+    valueUpdate: 'input'" />
+<button class="input-button" data-bind="
+    click: onButtonClick,
+    enable: enabled,
+    event: { mousedown: onButtonMouseDown },
+    css: { disabled: !enabled() }"></button>
+<div class="popup" data-bind="
+    event: { mousedown: onPopupMouseDown },
+    visible: popupVisible">
+    <calendar params="value: value"></calendar>
+</div>

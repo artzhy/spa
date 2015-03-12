@@ -1,0 +1,61 @@
+<div class="grid-data">
+    <div class="grid-header">
+        <table>
+            <thead data-bind="click: tableHeaderClick">
+                <tr data-bind="foreach: columns">
+                    <th data-bind="
+                        attr: {
+                            columnName: name,
+                            title: hint
+                        },
+                        css: {
+                            'grid-column-sortable': sortable,
+                            'grid-column-sortable-asc': sort() && sortAscending(),
+                            'grid-column-sortable-desc': sort() && !sortAscending()
+                        },
+                        click: $component.tableHeaderClick,
+                        html: headerHtml,
+                        style: {
+                            width: $data.width
+                        }"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="grid-body" data-bind="scrollTop: scrollTop">
+        <table data-bind="selectedRowIndex: selectedIndex">
+            <colgroup data-bind="foreach: columns">
+                <col data-bind="
+                    attr: {
+                        width: $data.width
+                    }" />
+            </colgroup>
+            <!-- ko if: $data.template != null -->
+            <!-- ko with: $parent -->
+            <tbody data-bind="click: $component.tableCellClick, template: { nodes: $component.template, foreach: $component.rows, if: $component.templateVisible }"></tbody>
+            <!-- /ko -->
+            <!-- /ko -->
+            <!-- ko if: $data.template == null -->
+            <tbody data-bind="click: tableCellClick, html: html">
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+            <!-- /ko -->
+        </table>
+    </div>
+</div>
+<div class="grid-footer">
+    <table>
+        <tfoot>
+            <tr>
+                <td data-bind="text: footerText"></td>
+                <td>
+                    <button data-bind="click: $component.previousPageClick"></button>
+                    <span data-bind="text: page() + ' / ' + pageCount()"></span>
+                    <button data-bind="click: $component.nextPageClick"></button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

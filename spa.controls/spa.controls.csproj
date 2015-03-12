@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{505DB5D2-113A-48FD-AEA4-5D211CD64007}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>spa.controls</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3204</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3204/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Build\EmbedTemplates.ps1" />
+    <Content Include="Build\Latest\spa.controls-latest.css">
+      <DependentUpon>spa.controls-latest.less</DependentUpon>
+    </Content>
+    <Content Include="Build\Latest\spa.controls-latest.min.css">
+      <DependentUpon>spa.controls-latest.css</DependentUpon>
+    </Content>
+    <Content Include="Controls\Autocomplete\Autocomplete.html" />
+    <Content Include="Controls\Calendar\Calendar.html" />
+    <Content Include="Controls\CheckBox\CheckBox.html" />
+    <Content Include="Controls\ComboBox\ComboBox.html" />
+    <Content Include="Controls\DateEdit\DateEdit.html" />
+    <Content Include="Controls\DropDownButton\DropDownButton.html" />
+    <Content Include="Controls\GridView\GridView.css">
+      <DependentUpon>GridView.less</DependentUpon>
+    </Content>
+    <Content Include="Controls\GridView\GridView.html" />
+    <Content Include="Controls\GridView\GridView.min.css">
+      <DependentUpon>GridView.css</DependentUpon>
+    </Content>
+    <Content Include="Controls\ListBox\ListBox.html" />
+    <Content Include="Controls\MemoEdit\MemoEdit.html" />
+    <Content Include="Controls\MenuBar\MenuBar.html" />
+    <Content Include="Controls\NumericEdit\NumericEdit.html" />
+    <Content Include="Controls\Pert\Pert.html" />
+    <Content Include="Controls\PictureBox\PictureBox.html" />
+    <Content Include="Controls\PivotView\PivotView.css">
+      <DependentUpon>PivotView.less</DependentUpon>
+    </Content>
+    <Content Include="Controls\PivotView\PivotView.html" />
+    <Content Include="Controls\PivotView\PivotView.min.css">
+      <DependentUpon>PivotView.css</DependentUpon>
+    </Content>
+    <Content Include="Controls\ProgressBar\ProgressBar.html" />
+    <Content Include="Controls\PushButton\PushButton.html" />
+    <Content Include="Controls\RadioButton\RadioButton.html" />
+    <Content Include="Controls\TextBox\TextBox.html" />
+    <Content Include="Controls\ToggleButton\ToggleButton.html" />
+    <Content Include="Controls\TreeView\TreeView.html" />
+    <Content Include="Controls\YandexMap\YandexMap.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Autocomplete\Autocomplete.less" />
+    <Content Include="Controls\Calendar\Calendar.less" />
+    <Content Include="Controls\CheckBox\CheckBox.less" />
+    <Content Include="Controls\ComboBox\ComboBox.less" />
+    <Content Include="Controls\ContextMenu\ContextMenu.less" />
+    <Content Include="Controls\DateEdit\DateEdit.less" />
+    <Content Include="Controls\DropDownButton\DropDownButton.less" />
+    <Content Include="Controls\GridView\GridView.less" />
+    <Content Include="Controls\ListBox\ListBox.less" />
+    <Content Include="Controls\MemoEdit\MemoEdit.less" />
+    <Content Include="Controls\MenuBar\MenuBar.less" />
+    <Content Include="Controls\NumericEdit\NumericEdit.less" />
+    <Content Include="Controls\PictureBox\PictureBox.less" />
+    <Content Include="Controls\PivotView\PivotView.less" />
+    <Content Include="Controls\ProgressBar\ProgressBar.less" />
+    <Content Include="Controls\PushButton\PushButton.less" />
+    <Content Include="Controls\RadioButton\RadioButton.less" />
+    <Content Include="Controls\TabControl\TabControl.less" />
+    <Content Include="Controls\TextBox\TextBox.less" />
+    <Content Include="Controls\ToggleButton\ToggleButton.less" />
+    <Content Include="Controls\Toolbar\Toolbar.less" />
+    <Content Include="Controls\TreeView\TreeView.less" />
+    <Content Include="Controls\YandexMap\YandexMap.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="..\spa.common\Build\Latest\spa.common-latest.d.ts">
+      <Link>Scripts\spa.common-latest.d.ts</Link>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Bindings\Autofocus.ts" />
+    <TypeScriptCompile Include="Bindings\Focused.ts" />
+    <TypeScriptCompile Include="Bindings\Pert.ts" />
+    <TypeScriptCompile Include="Bindings\ReadOnly.ts" />
+    <TypeScriptCompile Include="Bindings\ScrollTop.ts" />
+    <TypeScriptCompile Include="Bindings\SelectedRowIndex.ts" />
+    <TypeScriptCompile Include="Bindings\StopBinding.ts" />
+    <TypeScriptCompile Include="Controls\Autocomplete\Autocomplete.ts" />
+    <TypeScriptCompile Include="Controls\Calendar\Calendar.ts" />
+    <TypeScriptCompile Include="Controls\CheckBox\CheckBox.ts" />
+    <TypeScriptCompile Include="Controls\ComboBox\ComboBox.ts" />
+    <TypeScriptCompile Include="Controls\Component.ts" />
+    <TypeScriptCompile Include="Controls\ContextMenu\ContextMenu.ts" />
+    <TypeScriptCompile Include="Controls\DateEdit\DateEdit.ts" />
+    <TypeScriptCompile Include="Controls\DropDownButton\DropDownButton.ts" />
+    <TypeScriptCompile Include="Controls\GridView\GridView.ts" />
+    <TypeScriptCompile Include="Controls\ListBox\ListBox.ts" />
+    <TypeScriptCompile Include="Controls\MemoEdit\MemoEdit.ts" />
+    <TypeScriptCompile Include="Controls\MenuBar\MenuBar.ts" />
+    <TypeScriptCompile Include="Controls\NumericEdit\NumericEdit.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Pert.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Activity.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Connector.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Dependency.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Diagram.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Element.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\ElementCollection.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Geometry.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Group.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Milestone.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Node.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Wait.ts" />
+    <TypeScriptCompile Include="Controls\Pert\Script\Work.ts" />
+    <TypeScriptCompile Include="Controls\PictureBox\PictureBox.ts" />
+    <TypeScriptCompile Include="Controls\PivotView\PivotView.ts" />
+    <TypeScriptCompile Include="Controls\ProgressBar\ProgressBar.ts" />
+    <TypeScriptCompile Include="Controls\PushButton\PushButton.ts" />
+    <TypeScriptCompile Include="Controls\RadioButton\RadioButton.ts" />
+    <TypeScriptCompile Include="Controls\TabControl\TabControl.ts" />
+    <TypeScriptCompile Include="Controls\TextBox\TextBox.ts" />
+    <TypeScriptCompile Include="Controls\ToggleButton\ToggleButton.ts" />
+    <TypeScriptCompile Include="Controls\TreeView\TreeView.ts" />
+    <TypeScriptCompile Include="Controls\YandexMap\YandexMap.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\theme.less" />
+    <Content Include="Styles\utils.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Build\Latest\spa.controls-latest.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\GridView\GridView.css.map">
+      <DependentUpon>GridView.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\PivotView\PivotView.css.map">
+      <DependentUpon>PivotView.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Build\Latest\spa.controls-latest.css.map">
+      <DependentUpon>spa.controls-latest.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptOutFile>Build\Latest\spa.controls-latest.js</TypeScriptOutFile>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file "$(ProjectDir)Build\EmbedTemplates.ps1" $(ProjectDir)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

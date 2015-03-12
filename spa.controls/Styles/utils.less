@@ -1,0 +1,43 @@
+@import "theme.less";
+
+.clearfix() {
+    &:after,
+    &:before {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.border-radius(@radius) {
+    border-radius: @radius;
+}
+
+.placeholder-color(@color) {
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: @color;
+    }
+
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: @color;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: @color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: @color;
+    }
+}
+
+.hide-clear-button() {
+    &::-ms-clear {
+        display: none;
+    }
+}

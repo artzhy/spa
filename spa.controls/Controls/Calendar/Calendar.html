@@ -1,0 +1,11 @@
+<div class="buttons">
+    <button class="button back" data-bind="click: back"></button>
+    <button class="button up" data-bind="click: up, text: period"></button>
+    <button class="button forward" data-bind="click: forward"></button>
+</div>
+<ul class="header" data-bind="foreach: headerCells, visible: headerVisible">
+    <li class="dow" data-bind="text: $data"></li>
+</ul>
+<ul class="dates" data-bind="foreach: cells, css: { 'header-visible': headerVisible }">
+    <li data-bind="click: $parent.cellClick, css: className, text: text"></li>
+</ul>

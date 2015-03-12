@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{DF6584C0-2792-49DE-9D69-FB2F84D82D6D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>spa.common</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3202</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3202/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Build\Latest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Data\IDataSource.ts" />
+    <TypeScriptCompile Include="Data\IFilter.ts" />
+    <TypeScriptCompile Include="Data\ISort.ts" />
+    <TypeScriptCompile Include="Data\LocalDataSource.ts" />
+    <TypeScriptCompile Include="Data\RemoteDataSource.ts" />
+    <TypeScriptCompile Include="Exceptions\ArgumentException.ts" />
+    <TypeScriptCompile Include="Exceptions\ArgumentNullException.ts" />
+    <TypeScriptCompile Include="Exceptions\ArgumentOutOfRangeException.ts" />
+    <TypeScriptCompile Include="Exceptions\Exception.ts" />
+    <TypeScriptCompile Include="Exceptions\ForbiddenException.ts" />
+    <TypeScriptCompile Include="Exceptions\HttpException.ts" />
+    <TypeScriptCompile Include="Exceptions\NotFoundException.ts" />
+    <TypeScriptCompile Include="Exceptions\UnauthorizedException.ts" />
+    <TypeScriptCompile Include="Extensions\Array.ts" />
+    <TypeScriptCompile Include="Extensions\Date.ts" />
+    <TypeScriptCompile Include="Extensions\HTMLElement.ts" />
+    <TypeScriptCompile Include="Extensions\Knockout.ts" />
+    <TypeScriptCompile Include="Extensions\Node.ts" />
+    <TypeScriptCompile Include="Extensions\NodeList.ts" />
+    <TypeScriptCompile Include="Extensions\Number.ts" />
+    <TypeScriptCompile Include="Extensions\Object.ts" />
+    <TypeScriptCompile Include="Extensions\String.ts" />
+    <TypeScriptCompile Include="Interfaces\IPoint.ts" />
+    <TypeScriptCompile Include="Interfaces\ISize.ts" />
+    <TypeScriptCompile Include="Modules\Attribute.ts" />
+    <TypeScriptCompile Include="Modules\GC.ts" />
+    <TypeScriptCompile Include="Modules\Geocoder.ts" />
+    <TypeScriptCompile Include="Modules\Geolocator.ts" />
+    <TypeScriptCompile Include="Modules\JsonSerializer.ts" />
+    <TypeScriptCompile Include="Modules\Notification.ts" />
+    <TypeScriptCompile Include="Modules\Transliterator.ts" />
+    <TypeScriptCompile Include="Modules\Validator.ts" />
+    <TypeScriptCompile Include="Modules\WebClient.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Scripts\ymaps\ymaps.ts" />
+    <TypeScriptCompile Include="Modules\Task.ts" />
+    <TypeScriptCompile Include="Utils\Date.ts" />
+    <TypeScriptCompile Include="Utils\Function.ts" />
+    <TypeScriptCompile Include="Utils\Object.ts" />
+    <TypeScriptCompile Include="Utils\String.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptOutFile>Build\Latest\spa.common-latest.js</TypeScriptOutFile>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

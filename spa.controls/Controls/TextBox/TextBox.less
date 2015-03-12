@@ -1,0 +1,54 @@
+@import '../../Styles/theme.less';
+@import '../../Styles/utils.less';
+
+text-box, text-box * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+text-box {
+    display: inline-block;
+    height: @editor-height;
+    position: relative;
+    vertical-align: bottom;
+    width: 300px;
+
+    input {
+        background-color: @editor-background-color;
+        border: @editor-border;
+        color: @editor-color;
+        font: @editor-font;
+        padding: 0 4px;
+        height: 100%;
+        width: 100%;
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        .placeholder-color(@editor-placeholder-color);
+
+        &:hover {
+            background-color: @editor-hovered-background-color;
+            border: @editor-hovered-border;
+        }
+
+        &:focus {
+            background-color: @editor-focused-background-color;
+            border: @editor-focused-border;
+            outline: @editor-focused-outline;
+        }
+
+        &[disabled] {
+            background-color: @editor-disabled-background-color;
+            border: @editor-disabled-border;
+            color: @editor-disabled-color;
+            outline: none;
+
+            &::selection {
+                color: @editor-disabled-color;
+            }
+        }
+    }
+}

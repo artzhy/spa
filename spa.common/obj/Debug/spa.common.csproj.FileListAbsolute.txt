@@ -1,0 +1,4 @@
+D:\Projects\SPA\spa.common\bin\spa.common.dll
+D:\Projects\SPA\spa.common\bin\spa.common.pdb
+D:\Projects\SPA\spa.common\obj\Debug\spa.common.dll
+D:\Projects\SPA\spa.common\obj\Debug\spa.common.pdb

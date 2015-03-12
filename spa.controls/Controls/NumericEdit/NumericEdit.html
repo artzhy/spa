@@ -1,0 +1,18 @@
+﻿<input class="ne-input" type="text" maxlength="16" data-bind="
+        attr: { placeholder: placeholder },
+        autofocus: autofocus,
+        enable: enabled,
+        hasFocus: hasFocus,
+        readOnly: readOnly,
+        value: text,
+        valueUpdate: 'input'" />
+<div class="ne-buttons">
+    <button class="ne-button ne-increase" tabindex="-1" data-bind="
+            enable: enabled,
+            click: increase,
+            event: { mousedown: onButtonMouseDown }"></button>
+    <button class="ne-button ne-decrease" tabindex="-1" data-bind="
+            enable: enabled,
+            click: decrease,
+            event: { mousedown: onButtonMouseDown }"></button>
+</div>

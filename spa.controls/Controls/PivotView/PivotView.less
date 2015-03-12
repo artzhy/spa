@@ -1,0 +1,54 @@
+@import '../../Styles/utils.less';
+
+pivot-view, pivot-view * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+pivot-view {
+    cursor: default;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Arial, Verdana;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: bottom;
+
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        float: left;
+        list-style: none;
+        margin-right: 20px;
+        padding: 4px 0;
+        white-space: nowrap;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    a {
+        color: #666;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        &.selected {
+            color: #007acc;
+            font-weight: bold;
+        }
+    }
+
+    .clearfix();
+}

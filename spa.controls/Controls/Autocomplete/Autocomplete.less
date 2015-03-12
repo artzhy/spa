@@ -1,0 +1,85 @@
+@import '../../Styles/theme.less';
+@import '../../Styles/utils.less';
+
+autocomplete, autocomplete * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+autocomplete {
+    display: inline-block;
+    height: @editor-height;
+    position: relative;
+    vertical-align: bottom;
+    width: 300px;
+
+    .input {
+        background-color: @editor-background-color;
+        background-position: right 6px center;
+        background-repeat: no-repeat;
+        border: @editor-border;
+        color: @editor-color;
+        font: @editor-font;
+        height: 100%;
+        padding: 0 4px 0 4px;
+        position: relative;
+        width: 100%;
+        .placeholder-color(@editor-placeholder-color);
+        .hide-clear-button();
+
+        &:hover {
+            background-color: @editor-hovered-background-color;
+            border: @editor-hovered-border;
+        }
+
+        &:focus, &.focus {
+            background-color: @editor-focused-background-color;
+            border: @editor-focused-border;
+            outline: @editor-focused-outline;
+        }
+
+        &[disabled] {
+            background-color: @editor-disabled-background-color;
+            border: @editor-disabled-border;
+            color: @editor-disabled-color;
+            outline: none;
+
+            &::selection {
+                color: @editor-disabled-color;
+            }
+        }
+    }
+
+    .popup {
+        background-color: #fff;
+        border: 1px solid #5b9dd9;
+        box-shadow: 3px 3px 4px #e6e6e6;
+        cursor: default;
+        display: block;
+        margin-top: -1px;
+        max-height: 260px;
+        overflow-y: auto;
+        padding: 1px;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .popup-item {
+        border: 1px solid #fff;
+        font: @editor-font;
+        margin: 0;
+        padding: 2px;
+
+        &.active {
+            background-color: @list-item-active-background-color;
+            border: @list-item-active-border;
+        }
+    }
+
+    .item-text {
+        margin: 0;
+        padding: 0;
+    }
+}

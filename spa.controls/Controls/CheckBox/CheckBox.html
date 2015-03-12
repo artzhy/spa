@@ -1,0 +1,19 @@
+﻿<table>
+    <tr>
+        <!-- ko if: align() == 'left' -->
+        <td class="button-cell">
+            <div class="button" data-bind="autofocus: autofocus, attr: { tabIndex: enabled() ? 0 : -1 }, hasFocus: hasFocus, click: onClick, css: 'button ' + state(), event: { keypress: onKeyPress, mouseover: onMouseEnter, mouseout: onMouseLeave }"></div>
+        </td>
+        <!-- /ko -->
+        <!-- ko if: hasText -->
+        <td class="text-cell" data-bind="style: { 'text-align': align }">
+            <div class="text" data-bind="click: onClick, html: text, css: 'text ' + state(), event: { mousedown: onLabelMouseDown, mouseover: onMouseEnter, mouseout: onMouseLeave }"></div>
+        </td>
+        <!-- /ko -->
+        <!-- ko if: align() == 'right' -->
+        <td class="button-cell">
+            <div class="button" data-bind="autofocus: autofocus, attr: { tabIndex: enabled() ? 0 : -1 }, hasFocus: hasFocus, click: onClick, css: 'button ' + state(), event: { keypress: onKeyPress, mouseover: onMouseEnter, mouseout: onMouseLeave }"></div>
+        </td>
+        <!-- /ko -->
+    </tr>
+</table>

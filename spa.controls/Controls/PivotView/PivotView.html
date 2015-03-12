@@ -1,0 +1,8 @@
+﻿<ul data-bind="foreach: items">
+    <li>
+        <a class="item" data-bind="
+            css: { 'selected': $parent.selectedItem() == $data }, 
+            text: $data == null ? '' : $data.toString(), 
+            click: $parent.onItemClick"></a>
+    </li>
+</ul>

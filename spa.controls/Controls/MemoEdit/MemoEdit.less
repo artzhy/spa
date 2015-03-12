@@ -1,0 +1,52 @@
+@import '../../Styles/theme.less';
+@import '../../Styles/utils.less';
+
+memo-edit, memo-edit * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+memo-edit {
+    display: inline-block;
+    height: @editor-height;
+    position: relative;
+    vertical-align: bottom;
+    width: 300px;
+
+    textarea {
+        background-color: @editor-background-color;
+        border: @editor-border;
+        color: @editor-color;
+        font: @editor-font;
+        height: 100%;
+        overflow: auto;
+        padding: 3px 4px 0 4px;
+        resize: none;
+        width: 100%;
+
+        .placeholder-color(@editor-placeholder-color);
+
+        &:hover {
+            background-color: @editor-hovered-background-color;
+            border: @editor-hovered-border;
+        }
+
+        &:focus {
+            background-color: @editor-focused-background-color;
+            border: @editor-focused-border;
+            outline: @editor-focused-outline;
+        }
+
+        &[disabled] {
+            background-color: @editor-disabled-background-color;
+            border: @editor-disabled-border;
+            color: @editor-disabled-color;
+            outline: none;
+
+            &::selection {
+                color: @editor-disabled-color;
+            }
+        }
+    }
+}
