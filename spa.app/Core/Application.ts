@@ -277,6 +277,10 @@ module spa {
                 cachedPage.page.dispose();
             }
 
+            if (!url.startsWith("/")) {
+                url = "/" + url;
+            }
+
             history.pushState(newGuid(), document.title, url);
 
             this.onRouteChanged();
