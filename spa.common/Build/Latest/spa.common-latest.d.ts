@@ -193,7 +193,9 @@ declare module spa {
     class Attribute {
     }
     function addClassAttribute(objectClass: any, attribute: Attribute): void;
+    function addClassMemberAttribute(objectClass: any, memberName: string, attribute: Attribute): void;
     function getClassAttributes(objectClass: any): Attribute[];
+    function getClassMemberAttributes(objectClass: any, memberName: string): Attribute[];
     function getAttributeClasses(attributeClass: any): any[];
 }
 declare module spa {

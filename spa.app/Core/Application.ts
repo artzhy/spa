@@ -102,6 +102,10 @@ module spa {
                     return;
                 }
 
+                if (href.startsWith("mailto:")) {
+                    return;
+                }
+
                 if (href == "#") {
                     return;
                 }

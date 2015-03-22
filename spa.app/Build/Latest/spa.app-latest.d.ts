@@ -294,6 +294,39 @@ declare module spa {
     }
 }
 declare module spa {
+    class ValidationAttribute extends Attribute {
+        private _errorMessage;
+        constructor(errorMessage?: string);
+        errorMessage: string;
+        isValid(value: any, viewModel?: any, propertyName?: string): boolean;
+        protected getDefaultErrorMessage(): string;
+    }
+}
+declare module spa {
+    class MaxLengthAttribute extends ValidationAttribute {
+        maxLength: number;
+        constructor(maxLength: number, errorMessage: string);
+        isValid(value: any, viewModel?: any, propertyName?: string): boolean;
+        protected getDefaultErrorMessage(): string;
+    }
+}
+declare module spa {
+    class RangeAttribute extends ValidationAttribute {
+        minimum: number;
+        maximum: number;
+        constructor(minimum: number, maximum: number, errorMessage: string);
+        isValid(value: any, viewModel?: any, propertyName?: string): boolean;
+    }
+}
+declare module spa {
+    class ViewModel {
+        protected getValidationErrors(): IValidationError[];
+        valid: KnockoutComputed<boolean>;
+        validationErrors: KnockoutComputed<IValidationError[]>;
+    }
+    function addValidationAttribute(viewModelType: any, memberName: string, attributeType: any, attributeProperties?: any): void;
+}
+declare module spa {
     class InputStringDialog implements IDialog {
         static dialogName: string;
         constructor();
@@ -334,5 +367,11 @@ declare module spa {
         static pageName: string;
         errorMessage: KnockoutObservable<string>;
         constructor(params: any);
+    }
+}
+declare module spa {
+    class RequiredAttribute extends ValidationAttribute {
+        constructor(errorMessage?: string);
+        isValid(value: any, viewModel?: any, propertyName?: string): boolean;
     }
 }

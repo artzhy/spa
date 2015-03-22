@@ -41,7 +41,7 @@
         <!-- /ko -->
 
         <!-- ko foreach: items -->
-        <!-- ko if: $componentTemplateNodes == null || $componentTemplateNodes.length > 0 -->
+        <!-- ko if: $componentTemplateNodes == null || $componentTemplateNodes.length == 0 -->
         <li class="popup-item" data-bind="
                 click: $parent.onItemClick,
                 css: { 'active': $parent.activeItem() == $data },

@@ -173,6 +173,9 @@ var spa;
                 if (href.startsWith("http://")) {
                     return;
                 }
+                if (href.startsWith("mailto:")) {
+                    return;
+                }
                 if (href == "#") {
                     return;
                 }
@@ -1747,6 +1750,126 @@ var spa;
 })(spa || (spa = {}));
 var spa;
 (function (spa) {
+    var ValidationAttribute = (function (_super) {
+        __extends(ValidationAttribute, _super);
+        function ValidationAttribute(errorMessage) {
+            _super.call(this);
+            this._errorMessage = errorMessage;
+        }
+        Object.defineProperty(ValidationAttribute.prototype, "errorMessage", {
+            get: function () {
+                if (isNullOrWhiteSpace(this._errorMessage)) {
+                    return this.getDefaultErrorMessage();
+                }
+                return this._errorMessage;
+            },
+            set: function (value) {
+                this._errorMessage = value;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        ValidationAttribute.prototype.isValid = function (value, viewModel, propertyName) {
+            return true;
+        };
+        ValidationAttribute.prototype.getDefaultErrorMessage = function () {
+            return "Поле содержит недопустимое значение.";
+        };
+        return ValidationAttribute;
+    })(spa.Attribute);
+    spa.ValidationAttribute = ValidationAttribute;
+})(spa || (spa = {}));
+/// <reference path="validationattribute.ts" />
+var spa;
+(function (spa) {
+    var MaxLengthAttribute = (function (_super) {
+        __extends(MaxLengthAttribute, _super);
+        function MaxLengthAttribute(maxLength, errorMessage) {
+            this.maxLength = maxLength;
+            _super.call(this, errorMessage);
+        }
+        MaxLengthAttribute.prototype.isValid = function (value, viewModel, propertyName) {
+            return value == null || this.maxLength == null || value.toString().length <= this.maxLength;
+        };
+        MaxLengthAttribute.prototype.getDefaultErrorMessage = function () {
+            return "Длина строки не должна превышать {0}.".format(this.maxLength);
+        };
+        return MaxLengthAttribute;
+    })(spa.ValidationAttribute);
+    spa.MaxLengthAttribute = MaxLengthAttribute;
+})(spa || (spa = {}));
+/// <reference path="validationattribute.ts" />
+var spa;
+(function (spa) {
+    var RangeAttribute = (function (_super) {
+        __extends(RangeAttribute, _super);
+        function RangeAttribute(minimum, maximum, errorMessage) {
+            this.maximum = maximum;
+            this.minimum = minimum;
+            if (errorMessage == null) {
+                errorMessage = "Длина строки выходит за допустимые пределы.".format(minimum, maximum);
+            }
+            _super.call(this, errorMessage);
+        }
+        RangeAttribute.prototype.isValid = function (value, viewModel, propertyName) {
+            return value >= this.minimum && value <= this.maximum;
+        };
+        return RangeAttribute;
+    })(spa.ValidationAttribute);
+    spa.RangeAttribute = RangeAttribute;
+})(spa || (spa = {}));
+var spa;
+(function (spa) {
+    var ViewModel = (function () {
+        function ViewModel() {
+            var _this = this;
+            this.valid = ko.pureComputed(function () {
+                return _this.validationErrors() != null || _this.validationErrors().length == 0;
+            });
+            this.validationErrors = ko.pureComputed(function () {
+                return _this.getValidationErrors();
+            });
+        }
+        ViewModel.prototype.getValidationErrors = function () {
+            var _this = this;
+            var viewModelClass = this.constructor;
+            var viewModelErrors = [];
+            for (var memberName in this) {
+                var memberAttributes = spa.getClassMemberAttributes(viewModelClass, memberName).filter(function (x) { return x instanceof spa.ValidationAttribute; });
+                if (memberAttributes.length > 0) {
+                    var value = ko.unwrap(this[memberName]);
+                    memberAttributes.forEach(function (attribute) {
+                        if (!attribute.isValid(value, _this, memberName)) {
+                            viewModelErrors.push({ errorText: attribute.errorMessage, propertyName: memberName });
+                        }
+                    });
+                }
+            }
+            return viewModelErrors;
+        };
+        return ViewModel;
+    })();
+    spa.ViewModel = ViewModel;
+    function addValidationAttribute(viewModelType, memberName, attributeType, attributeProperties) {
+        var attribute = new attributeType();
+        if (attributeProperties != null) {
+            Object.getOwnPropertyNames(attributeProperties).forEach(function (propertyName) {
+                attribute[propertyName] = attributeProperties[propertyName];
+                //if (propertyName in attribute) {
+                //} else {
+                //    throw new Exception("Не удалось создать атрибут валидации {0} модели представления {1}. Свойство {2} не найдено.".format(
+                //        getFunctionName(viewModelType),
+                //        getFunctionName(attributeType),
+                //        propertyName));
+                //}
+            });
+        }
+        spa.addClassMemberAttribute(viewModelType, memberName, attribute);
+    }
+    spa.addValidationAttribute = addValidationAttribute;
+})(spa || (spa = {}));
+var spa;
+(function (spa) {
     var InputStringDialog = (function () {
         function InputStringDialog() {
             this.text = ko.observable("");
@@ -1908,5 +2031,23 @@ var spa;
         title: "Ошибка",
         viewModel: UnknownError
     });
+})(spa || (spa = {}));
+/// <reference path="validationattribute.ts" />
+var spa;
+(function (spa) {
+    var RequiredAttribute = (function (_super) {
+        __extends(RequiredAttribute, _super);
+        function RequiredAttribute(errorMessage) {
+            if (errorMessage == null) {
+                errorMessage = "Требуется значение.";
+            }
+            _super.call(this, errorMessage);
+        }
+        RequiredAttribute.prototype.isValid = function (value, viewModel, propertyName) {
+            return value != null;
+        };
+        return RequiredAttribute;
+    })(spa.ValidationAttribute);
+    spa.RequiredAttribute = RequiredAttribute;
 })(spa || (spa = {}));
 //# sourceMappingURL=spa.app-latest.js.map

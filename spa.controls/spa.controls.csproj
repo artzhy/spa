@@ -90,6 +90,12 @@
     <Content Include="Controls\RadioButton\RadioButton.html" />
     <Content Include="Controls\TextBox\TextBox.html" />
     <Content Include="Controls\ToggleButton\ToggleButton.html" />
+    <Content Include="Controls\Toolbar\Toolbar.css">
+      <DependentUpon>Toolbar.less</DependentUpon>
+    </Content>
+    <Content Include="Controls\Toolbar\Toolbar.min.css">
+      <DependentUpon>Toolbar.css</DependentUpon>
+    </Content>
     <Content Include="Controls\TreeView\TreeView.html" />
     <Content Include="Controls\YandexMap\YandexMap.html" />
   </ItemGroup>
@@ -190,6 +196,11 @@
   <ItemGroup>
     <Content Include="Build\Latest\spa.controls-latest.css.map">
       <DependentUpon>spa.controls-latest.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Toolbar\Toolbar.css.map">
+      <DependentUpon>Toolbar.css</DependentUpon>
     </Content>
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

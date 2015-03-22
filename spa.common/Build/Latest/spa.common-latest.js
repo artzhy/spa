@@ -865,12 +865,24 @@ var spa;
         });
     }
     spa.addClassAttribute = addClassAttribute;
+    function addClassMemberAttribute(objectClass, memberName, attribute) {
+        attributes.push({
+            objectClass: objectClass,
+            attribute: attribute,
+            memberName: memberName
+        });
+    }
+    spa.addClassMemberAttribute = addClassMemberAttribute;
     function getClassAttributes(objectClass) {
-        return attributes.filter(function (x) { return x.objectClass == objectClass; });
+        return attributes.filter(function (x) { return x.objectClass == objectClass; }).map(function (x) { return x.attribute; });
     }
     spa.getClassAttributes = getClassAttributes;
+    function getClassMemberAttributes(objectClass, memberName) {
+        return attributes.filter(function (x) { return x.objectClass == objectClass && x.memberName == memberName; }).map(function (x) { return x.attribute; });
+    }
+    spa.getClassMemberAttributes = getClassMemberAttributes;
     function getAttributeClasses(attributeClass) {
-        return attributes.filter(function (x) { return x.attribute instanceof attributeClass; });
+        return attributes.filter(function (x) { return x.attribute instanceof attributeClass; }).map(function (x) { return x.objectClass; });
     }
     spa.getAttributeClasses = getAttributeClasses;
 })(spa || (spa = {}));

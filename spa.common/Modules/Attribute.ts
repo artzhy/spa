@@ -11,11 +11,23 @@ module spa {
         });
     }
 
-    export function getClassAttributes(objectClass: any): Attribute[]{
-        return attributes.filter(x => x.objectClass == objectClass);
+    export function addClassMemberAttribute(objectClass: any, memberName: string, attribute: Attribute) {
+        attributes.push({
+            objectClass: objectClass,
+            attribute: attribute,
+            memberName: memberName
+        });
     }
 
-    export function getAttributeClasses(attributeClass: any): any[] {
-        return attributes.filter(x => x.attribute instanceof attributeClass);
+    export function getClassAttributes(objectClass: any): Attribute[]{
+        return attributes.filter(x => x.objectClass == objectClass).map(x => x.attribute);
+    }
+
+    export function getClassMemberAttributes(objectClass: any, memberName: string): Attribute[] {
+        return attributes.filter(x => x.objectClass == objectClass && x.memberName == memberName).map(x => x.attribute);
+    }
+
+    export function getAttributeClasses(attributeClass: any): any[]{
+        return attributes.filter(x => x.attribute instanceof attributeClass).map(x => x.objectClass);
     }
 } 

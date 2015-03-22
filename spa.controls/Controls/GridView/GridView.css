@@ -87,9 +87,6 @@ grid-view .grid-body {
 grid-view .grid-body tr {
   border-bottom: 1px dashed #eee;
 }
-grid-view .grid-body tr:last-child {
-  border-bottom: none;
-}
 grid-view .grid-body tr:hover {
   background-color: #f2f7fd;
 }

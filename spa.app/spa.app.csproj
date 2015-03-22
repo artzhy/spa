@@ -74,7 +74,11 @@
     <TypeScriptCompile Include="Core\Page.ts" />
     <TypeScriptCompile Include="Core\PageConfigurations.ts" />
     <TypeScriptCompile Include="Core\RouteAttribute.ts" />
+    <TypeScriptCompile Include="ValidationAttributes\MaxLengthAttribute.ts" />
+    <TypeScriptCompile Include="ValidationAttributes\RangeAttribute.ts" />
+    <TypeScriptCompile Include="ValidationAttributes\ValidationAttribute.ts" />
     <TypeScriptCompile Include="Core\View.ts" />
+    <TypeScriptCompile Include="Core\ViewModel.ts" />
     <TypeScriptCompile Include="Dialogs\InputString\InputStringDialog.ts" />
     <TypeScriptCompile Include="Dialogs\OpenFileDialog.ts" />
     <TypeScriptCompile Include="Pages\Forbidden\Forbidden.ts" />
@@ -82,6 +86,7 @@
     <TypeScriptCompile Include="Pages\NotFound\NotFoundPage.ts" />
     <TypeScriptCompile Include="Pages\UnknownError\UnknownError.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="ValidationAttributes\RequiredAttribute.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Build\EmbedLayoutTemplates.ps1" />
